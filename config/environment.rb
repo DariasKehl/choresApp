@@ -1,9 +1,12 @@
 ENV['SINATRA_ENV'] ||= "development"
 
+module ChoreApp
+end
+
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 configure :development do
-  set :database, 'sqlite3:db/chores.db'
+  set :database, 'sqlite3:db/development.sqlite'
 end 
 
 ActiveRecord::Base.establish_connection(
@@ -14,5 +17,3 @@ ActiveRecord::Base.establish_connection(
 require './app/controllers/application_controller'
 require_all 'app'
 
-module ChoreApp
-end

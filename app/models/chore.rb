@@ -1,5 +1,19 @@
-class ChoreApp::chore < ActiveRecord:Base
-    
+class ChoreApp::Chore < ActiveRecord::Base
+    belongs_to :user
+
+
+    #has a name
+    # has a description
+    # has a due date
+    # can belong to multiple users?  How? 
+  
+    # table shared_chores
+    # id   chore_id     user ids? <---  ??   
+
+
+end
+
+=begin    
     attr_accessor :name, :description, :due_date, :owner
     
     #attr_reader 
@@ -19,8 +33,16 @@ class ChoreApp::chore < ActiveRecord:Base
         new(name, owner, desc, due_date)
     end
 
-    def self.all
+    def self.all #returns all the chores
         @ALL
     end
 
+    def self.complete
+        #responsibly removeoneself from the array, 
+        #then also the database.
+
+    end
+
 end
+=end
+

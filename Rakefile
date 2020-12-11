@@ -6,7 +6,7 @@ require 'sinatra/activerecord/rake'
 
 task :console do
     puts "Loading your application environment"
-    reload!
+    #reload!
     puts "Console Started!"
     Pry.start
 end
