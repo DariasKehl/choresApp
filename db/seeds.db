@@ -1,0 +1,2 @@
+Chores.create(name="Dishes", description="Rinse, load Dishwasher, Run.", complete="false")
+Users.create(email="a@a.com", password="45432")
