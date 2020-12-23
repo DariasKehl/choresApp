@@ -30,9 +30,28 @@ get '/chores/new' do
 
     end
 
+    patch '/chores/:id' do
+        @chore = ChoreApp::Chore.find(params[:id])
+        @chore.update(name: params[:name], description: params[:description])
+        redirect "/chores/index.html"
+    end
+
+
+    delete '/chores/:id' do
+        @chore = ChoreApp::Chore.find(params[:id])
+        @chore.destroy
+        redirect '/chores'
+    end
+
+
         
 
 end
+
+=begin
+    Edit
+    Complete /Delete
+=end
 =begin
 create_table :chores do |c|
       c.string :name

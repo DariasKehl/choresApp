@@ -1,11 +1,13 @@
-<h1><%= @chore.name %></h1>
-<br>
-<hr>
-<h3><%= @chore.description %></h3>
-<br>
-<hr>
-<!-- Button complete -->
-<input type="submit" value="Edit Chore" />
-<input type="submit" value="Complete Chore" />
+<h1>Chore Details Page </h1>
 
+<form class = "" action="/chores/<%=@chore.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="name">Chore:</label>
+    <input type="text" name="title" value="<%= @chore.name %>">
+    <br>
+    <label for="description" style="width:auto; height:auto;">
+    <input type="text" name="description" value="<%= @chore.description %>">
+    <br>
+    <input type="submit" name="" value="Edit Chore">
 
+</form>
