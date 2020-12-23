@@ -1,0 +1,7 @@
+<h1>Your Chores</h1>
+
+<ul>
+  <% @chores.each do |chore| %>
+  <li><a href="/chores/<%= chore.id %>"><%= chore.name %></a></li>
+  <% end %>
+</ul>

@@ -1,6 +1,9 @@
 require './config/environment'
 
 class ChoreApp::ApplicationController < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
+  use Rack::Flash
+  
   configure do
     enable :sessions
     set :session_secret, "BunchaTrashD4T4"
@@ -13,13 +16,12 @@ class ChoreApp::ApplicationController < Sinatra::Base
   end
 
   helpers do
-
     def logged_in?
-      !!current_user # nil -> false -> true
+      !!current_user # nil (falsy) -> true -> false
     end
 
     def current_user
-      @user ||= User.find(session[:user_id]) if session[:user_id]
+      @user ||= ChoreApp::User.find(session[:user_id]) if session[:user_id]
     end
 
     def authentication_required

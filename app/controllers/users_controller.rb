@@ -15,7 +15,7 @@ class ChoreApp::UsersController < ChoreApp::ApplicationController
         @user.name = params[:name]
 
         if @user.save
-            redirect '/'
+            redirect '/chores'
         else
             erb :'users/new.html'
         end
@@ -28,7 +28,8 @@ class ChoreApp::UsersController < ChoreApp::ApplicationController
     post '/login' do
         @user = ChoreApp::User.find_by(:email => params[:email])
         if @user && @user.authenticate(params[:password])
-            redirect '/'
+            session["user_id"] = @user.id
+            redirect '/chores'
             
         else
             erb :'/users/login.html'

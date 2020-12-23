@@ -1,0 +1,24 @@
+<h1>New Chore</h1>
+<form action="/chores" method="POST">
+
+<p>
+  <label for="name">Chore Name:</label>
+  <input type="text" name="name" id="name" />
+</p>
+<p>
+  <label for="description">Chore Description:</label>
+  <input type="text" name="description" id="description" />
+</p>
+
+  <input type="submit" value="Create Chore" />
+</form>
+
+<!--
+create_table :chores do |c|
+      c.string :name
+      c.integer :owner
+      c.string :description
+      c.datetime :due_date
+      c.boolean :completed
+    end
+-->
